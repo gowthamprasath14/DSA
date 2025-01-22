@@ -58,3 +58,39 @@ class MinStack {
     }
 }
 -----------------------------------------------------------------------------------------------------------------------------
+
+150. Evaluate Reverse Polish Notation
+
+class Solution {
+    public int evalRPN(String[] tokens) {
+        Stack<Integer> s=new Stack<>();
+        for(String c : tokens){
+            if(c.equals("+") || c.equals("-") || c.equals("*") || c.equals("/")){
+                int n2=s.pop();
+                int n1=s.pop();
+            switch(c){
+                case "+":{
+                    int temp = n1+n2;
+                    s.push(temp);
+                    break;}
+                case "-":{
+                    int temp = n1-n2;
+                    s.push(temp);
+                    break;}
+                case "*":{
+                    int temp = n1*n2;
+                    s.push(temp);
+                    break;}
+                case "/":{
+                    int temp = n1/n2;
+                    s.push(temp);
+                    break;}
+                    }
+            }
+                else{
+                s.push(Integer.parseInt(c));
+            }
+        }
+        return s.pop();
+    }
+}
