@@ -1,0 +1,37 @@
+232. Implement Queue using Stacks
+
+class MyQueue {
+    public Stack<Integer> s;
+    public Stack<Integer> st;
+    public MyQueue() {
+        s=new Stack<>();
+        st=new Stack<>();
+    }
+    
+    public void push(int x) {
+        s.push(x);
+    }
+    
+    public int pop() {
+        if(st.isEmpty()){
+        while(!s.isEmpty()){
+            st.push(s.pop());
+        }
+        }
+       return st.pop();
+    }
+    
+    public int peek() {
+        if(st.isEmpty()){
+        while(!s.isEmpty()){
+            st.push(s.pop());
+        }
+        }
+       return st.peek();
+    }
+    
+    public boolean empty() {
+        if(s.isEmpty() && st.isEmpty()) return true;
+        else return false;
+    }
+}
