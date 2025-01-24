@@ -1,5 +1,44 @@
 234. Palindrome Linked List
 
+class Solution {
+
+    public boolean isPalindrome(ListNode head) {
+    ListNode mid=mid(head);
+    ListNode firsthalf=head;
+    ListNode secondhalf=rev(mid);
+    while(firsthalf!=null && secondhalf!=null){
+        if(firsthalf.val!=secondhalf.val) return false;
+        firsthalf=firsthalf.next;
+        secondhalf=secondhalf.next;
+    }
+    return true;
+    }
+    
+    private ListNode mid(ListNode main){
+        ListNode fast=main;
+        ListNode slow=main;
+        while(fast!=null && fast.next!=null){
+            fast=fast.next.next;
+            slow=slow.next;
+        }
+        return slow;
+    } 
+
+    private ListNode rev(ListNode main){
+        ListNode curr=main,prev=null;
+        while(curr!=null){
+            ListNode next=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=next;
+        }
+        return prev;
+    }
+
+}
+
+---------------------------------------------------------------------------------------
+
   class Solution {
     public boolean isPalindrome(ListNode head) {
         ListNode curr=head;
