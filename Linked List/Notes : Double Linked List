@@ -1,0 +1,15 @@
+public void forward_traversal()
+{
+  ListNode temp = head;
+  while(temp!=null){
+  System.out.println(temp.val);
+  temp=temp.next;
+}
+
+public void reverse_traversal()
+{
+  ListNode temp = tail;
+  while(temp!=null){
+  System.out.println(temp.val);
+  temp=temp.prev;
+}
