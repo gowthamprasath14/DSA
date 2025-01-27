@@ -1,0 +1,16 @@
+94. Binary Tree Inorder Traversal
+
+class Solution {
+    ArrayList<Integer> res;
+    private void inorder(TreeNode root){
+        if(root==null) return;
+        inorder(root.left);
+        res.add(root.val);
+        inorder(root.right);
+    }
+    public List<Integer> inorderTraversal(TreeNode root) {
+        res=new ArrayList<>();
+        inorder(root);
+        return res;
+    }
+}
