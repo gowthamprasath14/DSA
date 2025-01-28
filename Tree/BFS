@@ -9,17 +9,17 @@ class Solution {
         return ans;
         while(q.size()>0){
             int size=q.size();
-            List<Integer> currentlevelvalue=new ArrayList<>();
+            List<Integer> level=new ArrayList<>();
             while(size>0){
-                TreeNode currentvalue = q.poll();
-                currentlevelvalue.add(currentvalue.val);
+                TreeNode node = q.poll();
+                level.add(node.val);
 
-                if(currentvalue.left!=null) q.add(currentvalue.left);
-                if(currentvalue.right!=null) q.add(currentvalue.right);
+                if(node.left!=null) q.add(node.left);
+                if(node.right!=null) q.add(node.right);
             
                 size--;
             }
-            ans.add(currentlevelvalue);
+            ans.add(level);
         }
         return ans;
     }
