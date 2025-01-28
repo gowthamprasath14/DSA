@@ -1,0 +1,22 @@
+Cheak if BST (GFG)
+
+class Solution {
+    
+    boolean BST(Node root,int min,int max){
+        
+        if(root==null) return true;
+        if(root.data<=min || root.data>=max) return false;
+        
+        return BST(root.left,min,root.data)&&BST(root.right,root.data,max);
+    }
+    
+    boolean isBST(Node root) {
+        return BST(root,Integer.MIN_VALUE,Integer.MAX_VALUE);
+    }
+}
+
+
+/*    Range for each node will be (a,b)
+      for left node  (node,a) should be within a, a represents parent node 
+      for right node (b,node) should above b , b represents parent node
+*/
