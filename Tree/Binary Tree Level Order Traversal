@@ -1,0 +1,26 @@
+102. Binary Tree Level Order Traversal
+
+class Solution {
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
+        List<List<Integer>> ans = new ArrayList<>();
+        if(root==null)
+        return ans;
+        while(q.size()>0){
+            int size=q.size();
+            List<Integer> currentlevelvalue=new ArrayList<>();
+            while(size>0){
+                TreeNode currentvalue = q.poll();
+                currentlevelvalue.add(currentvalue.val);
+
+                if(currentvalue.left!=null) q.add(currentvalue.left);
+                if(currentvalue.right!=null) q.add(currentvalue.right);
+            
+                size--;
+            }
+            ans.add(currentlevelvalue);
+        }
+        return ans;
+    }
+}
