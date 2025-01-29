@@ -1,0 +1,19 @@
+589. N-ary Tree Preorder Traversal
+
+class Solution {
+    List<Integer> ans;
+
+    private void order(Node root){
+        if(root==null) return;
+        ans.add(root.val);
+        for(int i=0;i<root.children.size();i++){
+            order(root.children.get(i));
+        }
+    }
+
+    public List<Integer> preorder(Node root) {
+        ans=new ArrayList<>();
+        order(root);
+        return ans;
+    }
+}
