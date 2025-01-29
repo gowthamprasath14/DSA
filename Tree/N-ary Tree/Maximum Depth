@@ -1,0 +1,11 @@
+559. Maximum Depth of N-ary Tree
+
+public int maxDepth(Node root) {
+        if(root==null) return 0;
+        int depth=0;
+        for(Node i : root.children){
+            if(i!=null)
+            depth = Math.max(depth,maxDepth(i));
+        }
+        return 1+depth;   
+        }
