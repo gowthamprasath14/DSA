@@ -1,0 +1,21 @@
+N-ary Tree Inorder Traversal
+
+class Solution {
+    List<Integer> ans;
+
+    private void order(Node root) {
+    if(root==null) return;
+    int len=root.children.size();
+    for(int i=0;i<len-1;i++){
+        order(root.children.get(i));
+    }
+    ans.add(root.val);
+    if(len>0) order(root.children.get(len-1));
+    }
+
+    public List<Integer> postorder(Node root) {
+        ans=new ArrayList<>();
+        order(root);
+        return ans;
+    }
+}
