@@ -1,0 +1,19 @@
+590. N-ary Tree Postorder Traversal
+
+class Solution {
+    List<Integer> ans;
+
+    private void order(Node root) {
+    if(root==null) return;
+    for(int i=0;i<root.children.size();i++){
+        order(root.children.get(i));
+    }
+    ans.add(root.val);
+    }
+
+    public List<Integer> postorder(Node root) {
+        ans=new ArrayList<>();
+        order(root);
+        return ans;
+    }
+}
