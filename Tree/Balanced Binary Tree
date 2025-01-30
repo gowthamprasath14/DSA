@@ -1,0 +1,16 @@
+110. Balanced Binary Tree
+
+class Solution {
+
+    private int Balanced(TreeNode root) {
+        if(root==null) return 0;
+        int left=Balanced(root.left); if(left==-1) return -1;
+        int right=Balanced(root.right); if(right==-1) return -1;
+        if(Math.abs(left - right) > 1) return -1;    
+        return Math.max(left, right) + 1;  
+    }
+
+    public boolean isBalanced(TreeNode root) {
+        return Balanced(root)!=-1 ;
+    }
+}
