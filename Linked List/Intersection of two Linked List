@@ -1,0 +1,22 @@
+class Solution {
+    public Node findIntersection(Node head1, Node head2) {
+        HashSet<Integer> hash=new HashSet<>();
+        Node curr2=head2;
+        while(curr2!=null){
+            hash.add(curr2.data);
+            curr2=curr2.next;
+        }
+        
+        while(head1!=null && !hash.contains(head1.data)){
+            head1=head1.next;
+        }
+        
+        Node curr1=head1;
+        
+        while(curr1!=null && curr1.next!=null){
+            if(!hash.contains(curr1.next.data)) curr1.next=curr1.next.next;
+            else curr1=curr1.next;
+        }
+        return head1;
+    }
+}
