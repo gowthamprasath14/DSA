@@ -1,0 +1,19 @@
+class Solution {
+    public ListNode removeDuplicates(ListNode head) {
+        if (head == null || head.next == null) return head;
+
+        HashSet<Integer> seen = new HashSet<>();
+        ListNode curr = head;
+        seen.add(head.val);
+
+        while (curr.next != null) {
+            if (seen.contains(curr.next.val)) {
+                curr.next = curr.next.next;
+            } else {
+                seen.add(curr.next.val);
+                curr = curr.next;
+            }
+        }
+        return head;
+    }
+}
